@@ -60,14 +60,7 @@ git clone [https://github.com/ynsnait-lab/timetravel-agency.git](https://github.
 Lancer le serveur :
 Utilisez l'extension Live Server (VS Code) ou ouvrez simplement index.html dans votre navigateur.
 
-👥 L'Équipe (Groupe 4)
-
-[NOM PRÉNOM 1] — Lead UI/UX
-
-[NOM PRÉNOM 2] — Prompt Engineer & IA
-
-[NOM PRÉNOM 3] — Front-end Developer
-
-[NOM PRÉNOM 4] — QA & Documentation
+👥 L'Équipe 
+NAIT BENALI Younes, seul sur le projet
 
 Projet pédagogique réalisé dans le cadre du Mastère Digital & IA (2025-2026)
