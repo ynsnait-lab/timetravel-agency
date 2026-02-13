@@ -8,16 +8,49 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: white; 
+            scroll-behavior: smooth; 
+        }
+
+        /* Style Glassmorphism */
+        .glass { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+
         .text-gold { color: #d97706; }
         .bg-gold { background-color: #d97706; }
         .border-gold { border-color: #d97706; }
+
+        /* Scrollbar personnalisée */
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d97706; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { 
+            background: #d97706; 
+            border-radius: 10px; 
+        }
+
+        /* Animation pour la notification de succès */
+        #notif-success { 
+            transform: translateY(100px); 
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        #notif-success.active { 
+            transform: translateY(0); 
+            opacity: 1; 
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
+
+    <!-- Notification de réservation réussie -->
+    <div id="notif-success" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200] glass px-8 py-4 rounded-2xl border-gold/50 text-gold font-bold opacity-0 pointer-events-none">
+        <i class="fas fa-check-circle mr-2"></i> Réservation enregistrée dans la timeline !
+    </div>
 
     <!-- NAVIGATION -->
     <nav class="fixed top-0 w-full z-50 glass h-20 flex items-center px-6 md:px-12 justify-between">
@@ -32,9 +65,10 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (Playlist Vidéo) -->
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <!-- L'élément vidéo sans l'attribut loop pour permettre au script de changer de source -->
+        <video id="hero-video" autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-1000">
             <source src="paris.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505]"></div>
@@ -49,7 +83,7 @@
         </div>
     </header>
 
-    <!-- DESTINATIONS -->
+    <!-- GALERIE DES DESTINATIONS -->
     <section id="destinations" class="py-32 px-6 max-w-7xl mx-auto">
         <div class="mb-16">
             <span class="text-gold font-bold uppercase tracking-widest text-xs">Notre Catalogue</span>
@@ -60,7 +94,7 @@
             <!-- Paris -->
             <div class="group relative rounded-3xl overflow-hidden glass border-white/10 hover:border-gold/50 transition-all duration-500">
                 <div class="h-96 relative overflow-hidden">
-                    <img src="Gemini_Generated_Image_h4e0mkh4e0mkh4e0.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-duration-700" alt="Paris 1889">
+                    <img src="Gemini_Generated_Image_h4e0mkh4e0mkh4e0.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" alt="Paris 1889">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
                     <div class="absolute bottom-6 left-6">
                         <span class="text-gold text-[10px] font-bold uppercase tracking-widest">1889 — Belle Époque</span>
@@ -73,7 +107,7 @@
             <!-- Crétacé -->
             <div class="group relative rounded-3xl overflow-hidden glass border-white/10 hover:border-gold/50 transition-all duration-500">
                 <div class="h-96 relative overflow-hidden">
-                    <img src="Gemini_Generated_Image_aolgrbaolgrbaolg.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-duration-700" alt="Le Crétacé">
+                    <img src="Gemini_Generated_Image_aolgrbaolgrbaolg.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" alt="Le Crétacé">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
                     <div class="absolute bottom-6 left-6">
                         <span class="text-gold text-[10px] font-bold uppercase tracking-widest">-65M — Origines</span>
@@ -86,10 +120,10 @@
             <!-- Florence -->
             <div class="group relative rounded-3xl overflow-hidden glass border-white/10 hover:border-gold/50 transition-all duration-500">
                 <div class="h-96 relative overflow-hidden">
-                    <img src="Gemini_Generated_Image_czqf2wczqf2wczqf.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-duration-700" alt="Florence 1504">
+                    <img src="Gemini_Generated_Image_czqf2wczqf2wczqf.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" alt="Florence 1504">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
                     <div class="absolute bottom-6 left-6">
-                        <span class="text-gold text-[10px] font-bold uppercase tracking-widest 1504 — Renaissance">1504 — Renaissance</span>
+                        <span class="text-gold text-[10px] font-bold uppercase tracking-widest">1504 — Renaissance</span>
                         <h3 class="text-3xl font-black uppercase">Florence</h3>
                         <p class="text-xs text-gray-400 mt-2">L'atelier de Vinci et l'art éternel.</p>
                     </div>
@@ -98,88 +132,162 @@
         </div>
     </section>
 
-    <!-- QUIZ -->
+    <!-- QUIZ DE COMPATIBILITÉ -->
     <section id="quiz" class="py-32 px-6">
         <div class="max-w-4xl mx-auto glass rounded-[40px] p-12 text-center border-gold/10">
             <div id="quiz-content">
                 <span class="text-gold font-bold uppercase tracking-[0.2em] text-xs">Analyse de Résonance</span>
                 <h2 class="text-4xl font-bold mt-4 mb-8">Quelle époque est faite pour vous ?</h2>
                 <div class="grid gap-4 max-w-sm mx-auto">
-                    <button onclick="showResult('Paris 1889')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest">L'Élégance Urbaine</button>
-                    <button onclick="showResult('Le Crétacé')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest">L'Aventure Sauvage</button>
-                    <button onclick="showResult('Florence 1504')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest">L'Art & Le Génie</button>
+                    <button onclick="showResult('Paris 1889')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest text-left px-8">
+                        <i class="fas fa-tower-observation mr-3"></i> L'Élégance Urbaine
+                    </button>
+                    <button onclick="showResult('Le Crétacé')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest text-left px-8">
+                        <i class="fas fa-leaf mr-3"></i> L'Aventure Sauvage
+                    </button>
+                    <button onclick="showResult('Florence 1504')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest text-left px-8">
+                        <i class="fas fa-palette mr-3"></i> L'Art & Le Génie
+                    </button>
                 </div>
             </div>
             <div id="quiz-result" class="hidden">
-                <h2 class="text-3xl font-bold mb-4">Résultat de l'IA</h2>
-                <p class="text-gold mb-8 uppercase tracking-widest text-sm font-black">Votre destination est :</p>
-                <div id="result-name" class="text-5xl font-black mb-10 text-white tracking-tighter"></div>
-                <button onclick="location.reload()" class="text-xs text-gray-500 underline uppercase tracking-widest">Recommencer</button>
+                <h2 class="text-3xl font-bold mb-4 uppercase tracking-tighter">Analyse Terminée</h2>
+                <p class="text-gold mb-8 uppercase tracking-widest text-sm font-black">Votre destination idéale est :</p>
+                <div id="result-name" class="text-5xl font-black mb-10 text-white tracking-tighter uppercase"></div>
+                <button onclick="location.reload()" class="text-xs text-gray-500 underline uppercase tracking-widest font-bold">Refaire le test</button>
             </div>
         </div>
     </section>
 
-    <!-- CHATBOT -->
+    <!-- CHATBOT (L'ORACLE) -->
     <div class="fixed bottom-8 right-8 z-[60]">
         <div id="chat-box" class="hidden mb-4 w-[350px] h-[450px] glass rounded-[32px] overflow-hidden flex flex-col shadow-2xl">
             <div class="p-6 bg-gold text-black flex justify-between items-center">
-                <span class="font-black text-xs uppercase tracking-widest">L'Oracle IA</span>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-robot"></i>
+                    <span class="font-black text-xs uppercase tracking-widest">L'Oracle IA</span>
+                </div>
                 <button onclick="toggleChat()"><i class="fas fa-times"></i></button>
             </div>
             <div id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4 text-sm custom-scrollbar">
-                <div class="bg-white/5 p-3 rounded-2xl border border-white/5">Bonjour voyageur. Posez-moi vos questions sur nos époques disponibles.</div>
+                <div class="bg-white/5 p-3 rounded-2xl border border-white/5 text-gray-300">
+                    Bonjour voyageur. Je suis l'Oracle. Quelles curiosités temporelles puis-je éclaircir aujourd'hui ?
+                </div>
             </div>
-            <div class="p-4 border-t border-white/5 flex gap-2">
-                <input id="chat-input" type="text" placeholder="Message..." class="bg-white/5 border-none rounded-xl text-xs flex-1 px-4 py-2 outline-none">
-                <button onclick="sendMessage()" class="p-2 bg-gold text-black rounded-xl"><i class="fas fa-paper-plane"></i></button>
+            <div class="p-4 border-t border-white/5 flex gap-2 bg-black/20">
+                <input id="chat-input" type="text" placeholder="Message..." class="bg-white/5 border-none rounded-xl text-xs flex-1 px-4 py-2 outline-none text-white focus:ring-1 focus:ring-gold">
+                <button onclick="sendMessage()" class="p-2 bg-gold text-black rounded-xl hover:scale-105 transition-transform"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
         <button onclick="toggleChat()" class="w-16 h-16 bg-gold text-black rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all">
-            <i class="fas fa-comment-alt text-2xl"></i>
+            <i class="fas fa-comment-dots text-2xl"></i>
         </button>
     </div>
 
-    <!-- BOOKING MODAL -->
+    <!-- MODALE DE RÉSERVATION -->
     <div id="booking-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/90 backdrop-blur-md">
         <div class="glass w-full max-w-lg p-12 rounded-[40px] relative">
             <button onclick="toggleBooking()" class="absolute top-6 right-6 text-gray-500 hover:text-white"><i class="fas fa-times"></i></button>
-            <h2 class="text-3xl font-black mb-8 text-center uppercase tracking-tighter">Réservation Temporelle</h2>
-            <form onsubmit="event.preventDefault(); alert('Réservation enregistrée dans la timeline !'); toggleBooking();">
-                <input type="text" placeholder="Nom Complet" required class="w-full glass p-4 rounded-2xl mb-4 outline-none border-white/10 focus:border-gold/50">
-                <select class="w-full glass p-4 rounded-2xl mb-6 outline-none border-white/10 text-gray-400">
-                    <option>Paris 1889</option>
-                    <option>Le Crétacé</option>
-                    <option>Florence 1504</option>
-                </select>
-                <button type="submit" class="w-full bg-gold text-black p-5 rounded-2xl font-black uppercase tracking-widest">Valider le Billet</button>
+            <h2 class="text-3xl font-black mb-8 text-center uppercase tracking-tighter">Votre Billet Temporel</h2>
+            <form onsubmit="handleBooking(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-[10px] uppercase font-bold text-gray-500 ml-4">Identité du voyageur</label>
+                        <input type="text" placeholder="Nom Complet" required class="w-full glass p-4 rounded-2xl outline-none border-white/10 focus:border-gold/50 mt-1">
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase font-bold text-gray-500 ml-4">Fenêtre Temporelle</label>
+                        <select class="w-full glass p-4 rounded-2xl outline-none border-white/10 text-gray-400 mt-1 appearance-none">
+                            <option>Paris 1889</option>
+                            <option>Le Crétacé</option>
+                            <option>Florence 1504</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-gold text-black p-5 rounded-2xl font-black uppercase tracking-widest shadow-lg shadow-amber-600/30 mt-8 hover:scale-[1.02] transition-transform">
+                    Confirmer le Saut
+                </button>
             </form>
         </div>
     </div>
 
     <script>
+        // --- LOGIQUE DE LA PLAYLIST VIDÉO ---
+        const heroVideo = document.getElementById('hero-video');
+        
+        // Liste des vidéos à enchaîner
+        const playlist = [
+            "paris.mp4",
+            "dino.mp4",
+            "Florence_Cinematic_Video_Generation.mp4"
+        ];
+        
+        let currentVideoIndex = 0;
+
+        // On écoute la fin de la vidéo en cours
+        heroVideo.addEventListener('ended', function() {
+            // On passe à l'index suivant (retour à 0 si c'est la fin)
+            currentVideoIndex = (currentVideoIndex + 1) % playlist.length;
+            
+            // On change la source et on relance la lecture
+            heroVideo.src = playlist[currentVideoIndex];
+            heroVideo.play();
+        });
+
+        // --- INTERFACE & MODALES ---
         function toggleChat() { document.getElementById('chat-box').classList.toggle('hidden'); }
         function toggleBooking() { document.getElementById('booking-modal').classList.toggle('hidden'); }
+        
+        // Gestion de la réservation sans alert()
+        function handleBooking(event) {
+            event.preventDefault();
+            toggleBooking();
+            const notif = document.getElementById('notif-success');
+            notif.classList.add('active');
+            setTimeout(() => notif.classList.remove('active'), 4000);
+        }
+
+        // Résultats du quiz
         function showResult(name) {
             document.getElementById('quiz-content').classList.add('hidden');
             document.getElementById('quiz-result').classList.remove('hidden');
             document.getElementById('result-name').innerText = name;
         }
+
+        // Simulation du Chatbot Oracle
         function sendMessage() {
             const input = document.getElementById('chat-input');
             const messages = document.getElementById('chat-messages');
             if (input.value.trim() === '') return;
             
-            messages.innerHTML += `<div class="bg-gold text-black p-3 rounded-2xl self-end ml-12 font-bold">${input.value}</div>`;
+            // Message utilisateur
+            messages.innerHTML += `
+                <div class="flex justify-end">
+                    <div class="bg-gold text-black p-3 rounded-2xl font-bold max-w-[80%]">${input.value}</div>
+                </div>`;
+            
             const val = input.value.toLowerCase();
             input.value = '';
             
+            // Réponse de l'Oracle
             setTimeout(() => {
-                let response = "L'Oracle analyse votre demande... Florence et Paris sont actuellement très stables.";
-                if(val.includes('prix')) response = "Nos tarifs varient de 5 000 à 12 000 Chronos selon l'époque.";
-                if(val.includes('danger')) response = "Aucun risque. Notre bouclier de divergence temporelle vous protège.";
-                messages.innerHTML += `<div class="bg-white/5 p-3 rounded-2xl border border-white/5 mr-12">${response}</div>`;
+                let response = "L'Oracle scrute les lignes du temps... Vos interrogations sont légitimes.";
+                
+                if(val.includes('prix') || val.includes('combien')) {
+                    response = "Le coût d'un saut sécurisé varie entre 5 000 et 12 000 Chronos selon l'époque.";
+                } else if(val.includes('danger') || val.includes('sécurité')) {
+                    response = "Zéro risque. Notre technologie de divergence temporelle empêche tout paradoxe fâcheux.";
+                } else if(val.includes('paris')) {
+                    response = "Paris 1889 est actuellement notre destination la plus prisée. L'ambiance y est électrique !";
+                }
+                
+                messages.innerHTML += `
+                    <div class="flex justify-start">
+                        <div class="bg-white/5 p-3 rounded-2xl border border-white/5 text-gray-300 max-w-[80%]">${response}</div>
+                    </div>`;
+                
                 messages.scrollTop = messages.scrollHeight;
-            }, 1000);
+            }, 800);
         }
     </script>
 </body>
