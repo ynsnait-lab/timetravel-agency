@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTravel Agency | Voyages d'Exception</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .text-gold { color: #d97706; }
+        .bg-gold { background-color: #d97706; }
+        .border-gold { border-color: #d97706; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d97706; border-radius: 10px; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass h-20 flex items-center px-6 md:px-12 justify-between">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-history text-gold text-2xl"></i>
+            <span class="text-xl font-black uppercase tracking-tighter">TimeTravel <span class="text-gold">Agency</span></span>
+        </div>
+        <div class="hidden md:flex gap-8 items-center text-[10px] font-bold uppercase tracking-widest text-gray-400">
+            <a href="#destinations" class="hover:text-gold transition-colors">Destinations</a>
+            <a href="#quiz" class="hover:text-gold transition-colors">Quiz</a>
+            <button onclick="toggleBooking()" class="bg-gold text-black px-6 py-2 rounded-full hover:scale-105 transition-transform shadow-lg shadow-amber-600/20">Réserver</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
+            <source src="paris.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505]"></div>
+        
+        <div class="relative z-10 text-center px-4">
+            <span class="inline-block px-4 py-1 mb-6 border border-gold/30 rounded-full bg-gold/5 text-gold text-[10px] uppercase tracking-[0.3em] font-bold">L'Excellence Temporelle</span>
+            <h1 class="text-6xl md:text-9xl font-black mb-8 tracking-tighter leading-none">VIVEZ <br><span class="text-transparent bg-clip-text bg-gradient-to-b from-amber-200 to-amber-600">L'HISTOIRE.</span></h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">Explorez les époques les plus prestigieuses avec la sécurité d'une agence certifiée.</p>
+            <div class="flex gap-4 justify-center">
+                <a href="#destinations" class="bg-gold text-black px-10 py-4 rounded-full font-black uppercase tracking-widest text-sm hover:shadow-2xl transition-all">Explorer</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- DESTINATIONS -->
+    <section id="destinations" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="mb-16">
+            <span class="text-gold font-bold uppercase tracking-widest text-xs">Notre Catalogue</span>
+            <h2 class="text-5xl font-black mt-4 uppercase">Portails Actifs.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Paris -->
+            <div class="group relative rounded-3xl overflow-hidden glass border-white/10 hover:border-gold/50 transition-all duration-500">
+                <div class="h-96 relative overflow-hidden">
+                    <img src="Gemini_Generated_Image_h4e0mkh4e0mkh4e0.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-duration-700" alt="Paris 1889">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="text-gold text-[10px] font-bold uppercase tracking-widest">1889 — Belle Époque</span>
+                        <h3 class="text-3xl font-black uppercase">Paris</h3>
+                        <p class="text-xs text-gray-400 mt-2">L'Exposition Universelle et Gustave Eiffel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crétacé -->
+            <div class="group relative rounded-3xl overflow-hidden glass border-white/10 hover:border-gold/50 transition-all duration-500">
+                <div class="h-96 relative overflow-hidden">
+                    <img src="Gemini_Generated_Image_aolgrbaolgrbaolg.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-duration-700" alt="Le Crétacé">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="text-gold text-[10px] font-bold uppercase tracking-widest">-65M — Origines</span>
+                        <h3 class="text-3xl font-black uppercase">Le Crétacé</h3>
+                        <p class="text-xs text-gray-400 mt-2">Safari préhistorique au milieu des géants.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Florence -->
+            <div class="group relative rounded-3xl overflow-hidden glass border-white/10 hover:border-gold/50 transition-all duration-500">
+                <div class="h-96 relative overflow-hidden">
+                    <img src="Gemini_Generated_Image_czqf2wczqf2wczqf.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-duration-700" alt="Florence 1504">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="text-gold text-[10px] font-bold uppercase tracking-widest 1504 — Renaissance">1504 — Renaissance</span>
+                        <h3 class="text-3xl font-black uppercase">Florence</h3>
+                        <p class="text-xs text-gray-400 mt-2">L'atelier de Vinci et l'art éternel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto glass rounded-[40px] p-12 text-center border-gold/10">
+            <div id="quiz-content">
+                <span class="text-gold font-bold uppercase tracking-[0.2em] text-xs">Analyse de Résonance</span>
+                <h2 class="text-4xl font-bold mt-4 mb-8">Quelle époque est faite pour vous ?</h2>
+                <div class="grid gap-4 max-w-sm mx-auto">
+                    <button onclick="showResult('Paris 1889')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest">L'Élégance Urbaine</button>
+                    <button onclick="showResult('Le Crétacé')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest">L'Aventure Sauvage</button>
+                    <button onclick="showResult('Florence 1504')" class="w-full p-4 glass hover:bg-gold hover:text-black transition-all rounded-xl font-bold uppercase text-[10px] tracking-widest">L'Art & Le Génie</button>
+                </div>
+            </div>
+            <div id="quiz-result" class="hidden">
+                <h2 class="text-3xl font-bold mb-4">Résultat de l'IA</h2>
+                <p class="text-gold mb-8 uppercase tracking-widest text-sm font-black">Votre destination est :</p>
+                <div id="result-name" class="text-5xl font-black mb-10 text-white tracking-tighter"></div>
+                <button onclick="location.reload()" class="text-xs text-gray-500 underline uppercase tracking-widest">Recommencer</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHATBOT -->
+    <div class="fixed bottom-8 right-8 z-[60]">
+        <div id="chat-box" class="hidden mb-4 w-[350px] h-[450px] glass rounded-[32px] overflow-hidden flex flex-col shadow-2xl">
+            <div class="p-6 bg-gold text-black flex justify-between items-center">
+                <span class="font-black text-xs uppercase tracking-widest">L'Oracle IA</span>
+                <button onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4 text-sm custom-scrollbar">
+                <div class="bg-white/5 p-3 rounded-2xl border border-white/5">Bonjour voyageur. Posez-moi vos questions sur nos époques disponibles.</div>
+            </div>
+            <div class="p-4 border-t border-white/5 flex gap-2">
+                <input id="chat-input" type="text" placeholder="Message..." class="bg-white/5 border-none rounded-xl text-xs flex-1 px-4 py-2 outline-none">
+                <button onclick="sendMessage()" class="p-2 bg-gold text-black rounded-xl"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="w-16 h-16 bg-gold text-black rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all">
+            <i class="fas fa-comment-alt text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- BOOKING MODAL -->
+    <div id="booking-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/90 backdrop-blur-md">
+        <div class="glass w-full max-w-lg p-12 rounded-[40px] relative">
+            <button onclick="toggleBooking()" class="absolute top-6 right-6 text-gray-500 hover:text-white"><i class="fas fa-times"></i></button>
+            <h2 class="text-3xl font-black mb-8 text-center uppercase tracking-tighter">Réservation Temporelle</h2>
+            <form onsubmit="event.preventDefault(); alert('Réservation enregistrée dans la timeline !'); toggleBooking();">
+                <input type="text" placeholder="Nom Complet" required class="w-full glass p-4 rounded-2xl mb-4 outline-none border-white/10 focus:border-gold/50">
+                <select class="w-full glass p-4 rounded-2xl mb-6 outline-none border-white/10 text-gray-400">
+                    <option>Paris 1889</option>
+                    <option>Le Crétacé</option>
+                    <option>Florence 1504</option>
+                </select>
+                <button type="submit" class="w-full bg-gold text-black p-5 rounded-2xl font-black uppercase tracking-widest">Valider le Billet</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() { document.getElementById('chat-box').classList.toggle('hidden'); }
+        function toggleBooking() { document.getElementById('booking-modal').classList.toggle('hidden'); }
+        function showResult(name) {
+            document.getElementById('quiz-content').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('result-name').innerText = name;
+        }
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            if (input.value.trim() === '') return;
+            
+            messages.innerHTML += `<div class="bg-gold text-black p-3 rounded-2xl self-end ml-12 font-bold">${input.value}</div>`;
+            const val = input.value.toLowerCase();
+            input.value = '';
+            
+            setTimeout(() => {
+                let response = "L'Oracle analyse votre demande... Florence et Paris sont actuellement très stables.";
+                if(val.includes('prix')) response = "Nos tarifs varient de 5 000 à 12 000 Chronos selon l'époque.";
+                if(val.includes('danger')) response = "Aucun risque. Notre bouclier de divergence temporelle vous protège.";
+                messages.innerHTML += `<div class="bg-white/5 p-3 rounded-2xl border border-white/5 mr-12">${response}</div>`;
+                messages.scrollTop = messages.scrollHeight;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
